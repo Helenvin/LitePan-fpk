@@ -22,9 +22,16 @@ jobs:
       - name: Extract upstream version
         id: version
         run: |
-          # Fetch the version file directly from upstream (lightweight, no full clone)
-          RAW_VERSION=$(curl -sL "https://raw.githubusercontent.com/Ponphil/LitePan/main/internal/httpx/user_agent.go" \
-            | grep -oP 'AppVersion\s*=\s*"\K[^"]+')
+          # Fetch the version file from our fork first (anti-deletion), upstream as fallback
+          RAW_VERSION=""
+          for SRC in Helenvin Ponphil; do
+            RAW_VERSION=$(curl -sL "https://raw.githubusercontent.com/${SRC}/LitePan/main/internal/httpx/user_agent.go" \
+              | grep -oP 'AppVersion\s*=\s*"\K[^"]+' || true)
+            if [ -n "$RAW_VERSION" ]; then
+              echo "Version fetched from ${SRC}/LitePan"
+              break
+            fi
+          done
 
           if [ -z "$RAW_VERSION" ]; then
             echo "ERROR: Failed to fetch upstream version"
@@ -84,7 +91,10 @@ jobs:
 
       - name: Clone original LitePan source
         run: |
-          git clone --depth 1 https://github.com/Ponphil/LitePan.git litepan-src
+          # Clone from our fork first (anti-deletion), upstream as fallback
+          git clone --depth 1 https://github.com/Helenvin/LitePan.git litepan-src \
+            || git clone --depth 1 https://github.com/Ponphil/LitePan.git litepan-src
+          echo "Source repo: $(git -C litepan-src remote get-url origin)"
 
       - name: Override constants.go with our fork version
         run: |

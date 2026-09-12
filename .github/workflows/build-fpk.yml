@@ -119,8 +119,8 @@ jobs:
         env:
           VERSION: ${{ needs.check.outputs.version }}
         run: |
-          sed -i "s/^version\s*=.*/version               = v${VERSION}/" LitePan-x86/manifest
-          sed -i "s/^version\s*=.*/version               = v${VERSION}/" LitePan-arm/manifest
+          sed -i "s/^version\s*=.*/version               = ${VERSION}/" LitePan-x86/manifest
+          sed -i "s/^version\s*=.*/version               = ${VERSION}/" LitePan-arm/manifest
           echo "=== LitePan-x86/manifest ==="
           grep '^version' LitePan-x86/manifest
           echo "=== LitePan-arm/manifest ==="

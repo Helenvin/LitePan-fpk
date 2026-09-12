@@ -3,11 +3,11 @@
         "LitePan.Application": {
             "title": "LitePan",
             "icon": "images/icon_{0}.png",
-            "type": "iframe",
+            "type": "url",
             "protocol": "http",
             "port": "${port}",
             "url": "/",
-            "allUsers": false
+            "allUsers": false,
             "control": {
             "accessPerm": "editable"
                     }

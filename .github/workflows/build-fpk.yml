@@ -190,7 +190,7 @@ jobs:
           RUN_NUMBER: ${{ github.run_number }}
         run: |
           TAG="v${VERSION}-fpk-${RUN_NUMBER}"
-          REPO_URL="https://github.com/qilin-zhu/LitePan-fpk/releases/download/${TAG}"
+          REPO_URL="${{ github.server_url }}/${{ github.repository }}/releases/download/${TAG}"
           X86_FPK="LitePan_x86_${VERSION}.fpk"
           ARM_FPK="LitePan_arm_${VERSION}.fpk"
 
@@ -249,7 +249,7 @@ jobs:
           fi
 
           TAG="v${VERSION}-fpk-${RUN_NUMBER}"
-          REPO_URL="https://github.com/qilin-zhu/LitePan-fpk/releases/download/${TAG}"
+          REPO_URL="${{ github.server_url }}/${{ github.repository }}/releases/download/${TAG}"
           X86_FPK="LitePan_x86_${VERSION}.fpk"
           ARM_FPK="LitePan_arm_${VERSION}.fpk"
 

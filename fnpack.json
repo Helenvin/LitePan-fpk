@@ -10,7 +10,7 @@
     "version": "v0.5.5",
     "author": "qilinzhu",
     "author_url": "https://github.com/qilin-zhu",
-    "download_url": "https://github.com/Helenvin/LitePan-fpk/releases/download/v0.5.5-fpk-2/LitePan_x86_0.5.5.fpk",
+    "download_url": "https://github.com/Helenvin/LitePan-fpk/releases/download/v0.5.5-fpk-5/LitePan_x86_0.5.5.fpk",
     "bug_report_url": "https://github.com/qilin-zhu/LitePan-fpk/issues",
     "install_type": "存储空间",
     "size": "22",
@@ -18,10 +18,10 @@
     "changelog": "- 更新LitePan版本",
     "arch_diff": {
       "x86": {
-        "download_url": "https://github.com/Helenvin/LitePan-fpk/releases/download/v0.5.5-fpk-2/LitePan_x86_0.5.5.fpk"
+        "download_url": "https://github.com/Helenvin/LitePan-fpk/releases/download/v0.5.5-fpk-5/LitePan_x86_0.5.5.fpk"
       },
       "arm": {
-        "download_url": "https://github.com/Helenvin/LitePan-fpk/releases/download/v0.5.5-fpk-2/LitePan_arm_0.5.5.fpk"
+        "download_url": "https://github.com/Helenvin/LitePan-fpk/releases/download/v0.5.5-fpk-5/LitePan_arm_0.5.5.fpk"
       }
     }
   }
